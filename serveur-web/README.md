@@ -55,10 +55,13 @@ Structure de l'API:
 
 ## Site web
 Le site web se veut le "panneau de contrôle" du jardin. On veut être capable:
-- de voir les statistiques
-- d'envoyer des commandes au bucket (via l'API)
+- D'enregistrer un bucket pour voir ces statistiques.
+- Installer un capteur sur le bucket en en afficher les statistiques.
+- Faire la gestions des configurations de capteurs.
+- d'envoyer des commandes à un bucket (via l'API).
 
-(voir le prototype d'interface dans le Wiki du projet)
+(voir le prototype d'interface 2.0 dans la section [conception](https://github.com/ClubCedille/jardiniot/issues/48) Wiki du projet)
+
 
 #### Todo
 - Tout. Il n'y a rien d'effectué encore au niveau du site web.
