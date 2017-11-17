@@ -40,26 +40,26 @@ out.createBucket = function(_name, _ip, cb) {
 
 //Ajout d'un sensor dans la base de données
 out.createSensor = function(_name, _type, _bucketId, cb) {
-  if (!["humidity", "temperature"].includes(_type)) {
-    console.warn("");
-    console.warn("WARNING: In sqlite_connector::createSensor()");
-    console.warn("       : The type of the sensor is invalid.");
-    console.warn("       : Sensor creation cancelled.");
-    console.warn("");
-    return;
-  }
-  if (isNaN(_bucketId)) {
-    console.warn("");
-    console.warn("WARNING: In sqlite_connector::createSensor()");
-    console.warn("       : The ID of the bucket is invalid.");
-    console.warn("       : Sensor creation cancelled.");
-    console.warn("");
-    return;
-  }
+if (!["humidity", "temperature"].includes(_type)) {
+console.warn("");
+console.warn("WARNING: In sqlite_connector::createSensor()");
+console.warn("       : The type of the sensor is invalid.");
+console.warn("       : Sensor creation cancelled.");
+console.warn("");
+return;
+}
+if (isNaN(_bucketId)) {
+console.warn("");
+console.warn("WARNING: In sqlite_connector::createSensor()");
+console.warn("       : The ID of the bucket is invalid.");
+console.warn("       : Sensor creation cancelled.");
+console.warn("");
+return;
+}
 
-  var requete = db.prepare("INSERT INTO sensors (bucket_id, name, type) VALUES (?, ?, ?)");
-  var id;
-  requete.run(_bucketId, _name, _type, function(){
+var requete = db.prepare("INSERT INTO sensors (bucket_id, name, type) VALUES (?, ?, ?)");
+var id;
+requete.run(_bucketId, _name, _type, function(){
     cb(this.lastID);
   });
 }
@@ -119,7 +119,6 @@ out.createValueWithSensorName = function(_value, _sensorName, _bucketName) {
     }
   });
 }
-
 
 //-------Fonctions pour aller chercher les informations dans la BD-------
 

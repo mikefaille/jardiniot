@@ -37,6 +37,13 @@ api.get('/buckets/:bucketId', function(req, res, next) {
 });
 
 /*
+ * Bucket Post
+*/
+api.post('/buckets', function(req,res){
+    bucketPost(res,res);
+}
+
+
  * Sensor info
  */
 api.get('/buckets/:bucketId/:sensorId', function(req, res, next) {
@@ -82,6 +89,10 @@ function bucketInfo(req, res) {
             res.status(200).send(JSON.stringify(result));
         }
     });
+}
+
+function bucketPost(req,res){
+    var 	
 }
 
 //Get sensor value
