@@ -3,7 +3,8 @@ var dataConn = require("./sqlite_connector.js");
 // modules pour front end
 var path = require('path');
 
-// La racine du site web servie par l'API
+// La racine du site web servie par l'AP
+//
 const websitedir = '../siteweb/test.html';
 
 const mqtt = require("./mqtt_connector.js");
