@@ -1,5 +1,10 @@
 var express = require("express");
 var dataConn = require("./sqlite_connector.js");
+// modules pour front end
+var path = require('path');
+
+// La racine du site web servie par l'API
+const websitedir = '../siteweb/test.html';
 
 const mqtt = require("./mqtt_connector.js");
 mqtt.init(dataConn);
@@ -21,6 +26,10 @@ function enableCORS(req, res, next) {
     next();
 }
 
+api.get('/', function(req,res,next) {
+    res.status(200).sendFile(path.join(__dirname, websitedir));
+});
+
 
 /*
  * Bucket list
@@ -39,11 +48,12 @@ api.get('/buckets/:bucketId', function(req, res, next) {
 /*
  * Bucket Post
 */
-api.post('/buckets', function(req,res){
+api.post('/buckets', function(req, res, next){
+	
     bucketPost(res,res);
-}
+});
 
-
+/*
  * Sensor info
  */
 api.get('/buckets/:bucketId/:sensorId', function(req, res, next) {
@@ -92,7 +102,7 @@ function bucketInfo(req, res) {
 }
 
 function bucketPost(req,res){
-    var 	
+    res.status(200).send(req.params);
 }
 
 //Get sensor value
